@@ -55,6 +55,7 @@ header {
     position: fixed;
     width: 100vw;
     top: 0;
+    z-index: 1;
 
 }
 
@@ -70,6 +71,12 @@ header {
 .menu a {
     display: block;
     padding: 10px 20px;
+    transition: 2s;
+}
+
+.menu a:hover {
+    background-color: teal;
+    color: whitesmoke;
 }
 
 a {
@@ -79,6 +86,21 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+
+.titulo {
+    transform: scale(0.2) translateY(50vh);
+    opacity: 0;
+
+    animation: 0.5s linear 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo {
+    100% {
+        transform: scale(1) translate(0);
+        opacity: 1;
+    }
 }
 
 .site-subtitle,
@@ -105,17 +127,57 @@ a:hover {
     color: azure;
 }
 
-.portfolio { 
+.sobre,
+.contato,
+.portfolio {
     padding: 2em;
-    height: 100vh;
+    min-height: 100vh;
 }
 
+@media (min-width: 1200px) {
+
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1200px;
+    }
+}
+
+.sobre h2,
+.contato h2,
 .portfolio h2 {
     font-family: 'Press Start 2P', cursive;
     color: whitesmoke;
     margin-bottom: 2em;
 }
 
+.sobre p {
+    color: white;
+    margin-bottom: 1.4em;
+    text-indent: 1.4em;
+    text-align: justify;
+}
+
+.sobre a {
+    color: white;
+    text-decoration: underline;
+
+}
+
+.sobre a:hover {
+    background-color: cyan;
+
+}
+
+.sobre .avatar {
+    float: right;
+    margin: left;
+    
+}
+
+.sobre .avatar img {
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+}
 
 .portfolio .grid {
     display: grid;
@@ -146,7 +208,16 @@ a:hover {
     width: 240px;
     object-fit: cover;
     object-position: left bottom;
+    transition: transform 500ms;
 }
+
+/* .img-portfolio:hover {
+    transform: scale(1.2) rotate(15deg);
+
+} */
+
+
+
 
 /* @media (min-width: 1200px) {
     .img-portfolio {
@@ -154,3 +225,37 @@ a:hover {
         width: 100%;
     }
 } */
+
+.card-front, .card-back {
+    position: absolute;
+}
+
+.card {
+    position: relative;
+    background-color: red;
+    transform-style: preserve-3d;
+    transition: transform 1;
+}
+
+.card-back {
+    background-color: white;
+    height: 180px;
+    width: 100%;
+    transform: rotateY(180deg);
+}
+
+
+
+
+
+.contato a {
+    color: whitesmoke;
+    font-size: 3em;
+}
+
+.contato a:active,
+.contato a:hover {
+    text-decoration: none;
+    text-shadow: 0px 0px 10px rgba(39, 126, 145, 0.5);
+    transition: text-shadow 1s;
+}
